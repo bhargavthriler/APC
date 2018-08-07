@@ -133,8 +133,14 @@ int takeNum(char * expr, dig **No1, dig **No2)
 
 	if (operator == '*')
 	{
-		res = apc_evaluation_mul(No1, No2, operator);
+		res = eval_mul(No1, No2, operator);
 		printf("\nResult : ");
 		dl_print_list(res);
+	}
+
+	if (operator == '/')
+	{
+		int count = apc_evaluation_div(No1, No2, operator);
+		printf("\nResult is %d\n", count);
 	}
 }

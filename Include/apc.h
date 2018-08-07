@@ -20,6 +20,7 @@ int takeNum(char * expr, dig **No1, dig **No2);
 int check_greater(dig **No1, dig **No2);
 dig *eval_sum(dig **No1, dig **No2, char operator);
 dig *eval_mul(dig **No1, dig **No2, char operator);
+int apc_evaluation_div(dig **No1, dig **No2, char operator);
 
 
 
