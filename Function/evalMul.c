@@ -7,12 +7,12 @@
 
 #include <apc.h>
 
-dig *apc_evaluation_mul(dig **No1, dig **No2, char operator)
+dig *eval_mul(dig **No1, dig **No2, char operator)
 {
 
 	/*local variable declaration*/
 	dig *Result1 = NULL, *Result2 = NULL, *ptr1 = *No1, *ptr2 = *No2, *last;
-	int idx = 0, carry = 0, result, num, sum, flag = 0, jdx;
+	int dig_ptr = 0, carry = 0, result, num, sum, flag = 0, other_ptr;
 
 	dl_insert_first(&Result2, 0);
 
@@ -40,7 +40,7 @@ dig *apc_evaluation_mul(dig **No1, dig **No2, char operator)
 			/*appending zeros*/
 			if (ptr2->nextD == NULL)
 			{
-				for (jdx = 0; jdx < (idx); jdx++)
+				for (other_ptr = 0; other_ptr < (dig_ptr); other_ptr++)
 				{
 					dl_insert_first(&Result1, 0);
 				}
@@ -53,11 +53,11 @@ dig *apc_evaluation_mul(dig **No1, dig **No2, char operator)
 
 
 			/*checking for over flow*/
-			if (result > 9999)
+			if (result > 99999999)
 			{
 				num = result;
-				result = num % 10000;
-				carry = num / 10000;
+				result = num % 100000000;
+				carry = num / 100000000;
 				flag = 1;
 			}
 
@@ -77,12 +77,12 @@ dig *apc_evaluation_mul(dig **No1, dig **No2, char operator)
 		}
 
 		/*calling addition function block*/
-		Result2 = apc_evaluation_sum(&Result1, &Result2, '+');
+		Result2 = eval_sum(&Result1, &Result2, '+');
 		Result1 = NULL;
 		ptr1 = ptr1->prevD;
 		ptr2 = last;
 		carry = 0;
-		++idx;
+		++dig_ptr;
 	}
 
 
