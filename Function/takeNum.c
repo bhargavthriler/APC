@@ -154,7 +154,7 @@ int takeNum(char * expr, dig **No1, dig **No2)
 	/*if the operator is "%"*/
 	if (operator == '%')
 	{
-		apc_evaluation_div(No1, No2, operator);
+		eval_div(No1, No2, operator);
 	}
 
 	

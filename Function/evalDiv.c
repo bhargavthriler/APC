@@ -7,7 +7,7 @@
 
 #include <apc.h>
 
-int apc_evaluation_div(dig **No1, dig **No2, char operator)
+int eval_div(dig **No1, dig **No2, char operator)
 {
 
 	/*local variable declatation*/
