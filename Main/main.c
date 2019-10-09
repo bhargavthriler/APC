@@ -16,6 +16,6 @@ int main(int argv, char *argc[])
 	}
 	else
 	{
-		printf("error no arguments passed: \npass expression as one argument\neg: ./main.out <expr>\n");
+		printf("pass only 2 arguments: \npass expression as one argument\neg: ./main.out <expr>\n");
 	}
 }
